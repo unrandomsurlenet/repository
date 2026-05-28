@@ -1,0 +1,11 @@
+{
+  "type": "dimproject:test",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "dimproject:test",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "dimproject:test"
+    }
+  }
+}
