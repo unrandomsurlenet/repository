@@ -41,7 +41,7 @@
             "type": "minecraft:range_choice",
             "input": "minecraft:y",
             "min_inclusive": 190,
-            "max_exclusive": 200,
+            "max_exclusive": 194,
             "when_in_range": 1,
             "when_out_of_range": 0
           },
@@ -67,7 +67,27 @@
         },
         "argument2": 0
       },
-      "argument2": 0
+      "argument2": {
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:mul",
+          "argument1": {
+            "type": "minecraft:noise",
+            "noise": "minecraft:spaghetti_2d_elevation",
+            "xz_scale": -8,
+            "y_scale": 1
+          },
+          "argument2": {
+            "type": "minecraft:range_choice",
+            "input": "minecraft:y",
+            "min_inclusive": 105,
+            "max_exclusive": 190,
+            "when_in_range": 1,
+            "when_out_of_range": 0
+          }
+        },
+        "argument2": 0
+      }
     }
   },
   "spawn_target": [
