@@ -18,7 +18,7 @@ public class DimProjectBlocks {
 	public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, DimProjectMod.MODID);
 
-    public static final RegistryObject<Block> SKULREX = registerBlock("skulrex",
+    public static final RegistryObject<Block> SKULREX_1 = registerBlock("skulrex_1",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     
     

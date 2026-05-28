@@ -14,7 +14,7 @@ public class DimProjectSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, DimProjectMod.MODID);
 
-    public static final RegistryObject<SoundEvent> SKULREX_1 = registerSoundEvents("skulrex_1");
+    public static final RegistryObject<SoundEvent> SKULREX = registerSoundEvents("skulrex");
 
    
 
