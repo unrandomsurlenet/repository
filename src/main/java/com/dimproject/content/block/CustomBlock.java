@@ -24,10 +24,10 @@ public class CustomBlock extends Block {
     private static final VoxelShape SHAPE = Shapes.box(
             0.0,   // minX
             0.0,   // minY
-            -1.5,  // minZ (2 blocks en arrière, 1.5 de chaque côté)
-            1.0,   // maxX
-            3.0,   // maxY (3 blocks en hauteur)
-            2.5    // maxZ (2 blocks en avant)
+            0.0,  // minZ (2 blocks en arrière, 1.5 de chaque côté)
+            32.0,   // maxX
+            32.0,   // maxY (3 blocks en hauteur)
+            32.0    // maxZ (2 blocks en avant)
     );
 
     public CustomBlock(Properties properties) {

@@ -1,0 +1,5 @@
+{  
+  "variants": {  
+    "": { "model": "dimproject:block/test_block" }  
+  }  
+}
