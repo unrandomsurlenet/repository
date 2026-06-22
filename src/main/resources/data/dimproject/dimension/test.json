@@ -4,8 +4,10 @@
     "type": "minecraft:noise",
     "settings": "dimproject:test",
     "biome_source": {
-      "type": "minecraft:fixed",
-      "biome": "dimproject:test"
+      "type": "dimproject:height_biome_source",
+      "biome_top": "dimproject:biome_haut",
+      "biome_bottom": "dimproject:biome_bas",
+      "threshold_y": 64
     }
   }
 }

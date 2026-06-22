@@ -3,7 +3,6 @@ package com.dimproject.registries;
 import java.util.function.Supplier;
 
 import com.dimproject.DimProjectMod;
-import com.dimproject.content.block.CustomBlock;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -20,7 +19,7 @@ public class DimProjectBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, DimProjectMod.MODID);
 
     public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block",
-            () -> new CustomBlock(BlockBehaviour.Properties.copy(Blocks.STONE)));
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
     
     
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

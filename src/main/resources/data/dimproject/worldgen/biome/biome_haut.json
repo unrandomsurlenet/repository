@@ -3,18 +3,18 @@
   "creature_spawn_probability": 0.0,
   "downfall": 0.5,
   "effects": {
-    "fog_color": 16745810,
+    "fog_color": 12638463,
     "music": {
       "max_delay": 24000,
       "min_delay": 12000,
       "replace_current_music": false,
       "sound": ""
     },
-    "sky_color": 16745810,
+    "sky_color": 7903999,
     "water_color": 4159204,
     "water_fog_color": 329011
   },
-  "features": [[],[],[],[],[]],
+  "features": [["dimproject:lelyetian_hole"],[],[],[],["dimproject:ledge"]],
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {

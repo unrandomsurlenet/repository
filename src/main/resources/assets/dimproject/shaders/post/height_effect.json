@@ -1,0 +1,18 @@
+{
+  "targets": [ "swap" ],
+  "passes": [
+    {
+      "name": "dimproject:height_effect",
+      "intarget": "minecraft:main",
+      "outtarget": "swap",
+      "uniforms": [
+        { "name": "Intensity", "values": [ 0.0 ] }
+      ]
+    },
+    {
+      "name": "dimproject:height_effect",
+      "intarget": "swap",
+      "outtarget": "minecraft:main"
+    }
+  ]
+}

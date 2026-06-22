@@ -1,0 +1,8 @@
+{
+  "type": "dimproject:ledge",
+  "config": {
+    "block": {
+      "Name": "minecraft:dirt"
+    }
+  }
+}

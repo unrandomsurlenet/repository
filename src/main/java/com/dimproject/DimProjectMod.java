@@ -1,6 +1,8 @@
 package com.dimproject;
 
+import com.dimproject.registries.DimProjectBiomeSources;
 import com.dimproject.registries.DimProjectBlocks;
+import com.dimproject.registries.DimProjectFeatures;
 import com.dimproject.registries.DimProjectItems;
 import com.dimproject.registries.DimProjectSounds;
 import com.mojang.logging.LogUtils;
@@ -65,6 +67,8 @@ public class DimProjectMod
         DimProjectItems.register(modEventBus);
         DimProjectBlocks.register(modEventBus);
         DimProjectSounds.register(modEventBus);
+        DimProjectFeatures.register(modEventBus);
+        DimProjectBiomeSources.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
