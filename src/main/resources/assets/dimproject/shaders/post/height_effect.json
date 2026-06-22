@@ -4,15 +4,10 @@
     {
       "name": "dimproject:height_effect",
       "intarget": "minecraft:main",
-      "outtarget": "swap",
+      "outtarget": "minecraft:main",
       "uniforms": [
         { "name": "Intensity", "values": [ 0.0 ] }
       ]
-    },
-    {
-      "name": "dimproject:height_effect",
-      "intarget": "swap",
-      "outtarget": "minecraft:main"
     }
   ]
 }
