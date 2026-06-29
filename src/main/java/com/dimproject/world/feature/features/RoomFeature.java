@@ -3,10 +3,11 @@ package com.dimproject.world.feature.features;
 
 import java.util.Random;
 
+import com.dimproject.registries.DimProjectBlocks;
 import com.dimproject.world.feature.placement.BlockStatePlacementConfig;
 import com.mojang.serialization.Codec;
 
-
+import net.minecraft.client.multiplayer.chat.LoggedChatMessage.System;
 import net.minecraft.core.BlockPos;
 //import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
@@ -51,7 +52,6 @@ public class RoomFeature extends Feature<BlockStatePlacementConfig>{
 	
 	
 	public boolean generateHole(WorldGenLevel reader, ChunkGenerator chunkGen, RandomSource rand, BlockPos pos) {
-		Random rng = new Random();
 		BlockPos.MutableBlockPos position = new BlockPos.MutableBlockPos().set(pos.below());
 
 		
@@ -59,38 +59,25 @@ public class RoomFeature extends Feature<BlockStatePlacementConfig>{
 		
 		
 			setAirBlock(reader, pos, 1, 0, 1, 14, 256, 14);
+			setAirBlock(reader, pos, 0, 0, 0, 15, 55, 15);
+			for (int y = 55; y <= 60; y++) {
+				for (int x = 1; x <= 14; x++) {
+					for (int z = 1; z <= 14; z++) {
+						if ((reader.getBlockState(position.offset(x, y, z))) == Blocks.BOOKSHELF.defaultBlockState()){
+						int rng = rand.nextInt((int) Math.pow(2, (y - 55) / 2));
+						java.lang.System.out.print(rng);
+						if (rng == 0) {
+							placeBlock(reader, position.offset(x, y, z), DimProjectBlocks.ARCANE_LIBRAIRY_BRICKS.get().defaultBlockState());
+							
+						}
+						}
+						
+					}
+				}
+			}
 			
-					
-//					placeBlock(reader, position.offset(1, 59-59, 1), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(14, 59-59, 14), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(1, 59-59, 14), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(14, 59-59, 1), Blocks.BLACK_WOOL.defaultBlockState());
-//
-//					placeBlock(reader, position.offset(2, 58-59, 2), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(13, 58-59, 13), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(2, 58-59, 13), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(13, 58-59, 2), Blocks.BLACK_WOOL.defaultBlockState());
-//
-//					placeBlock(reader, position.offset(3, 57-59, 3), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(12, 57-59, 12), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(3, 57-59, 12), Blocks.BLACK_WOOL.defaultBlockState());
-//					placeBlock(reader, position.offset(12, 57-59, 3), Blocks.BLACK_WOOL.defaultBlockState());
-//
-//			for (int x = 0; x <= 15; x++) {
-//				for (int z = 0; z <= 15; z++) {
-//					BlockPos posWest = pos.west(); // équivalent à x-1, y, z
-//					BlockState stateWest = reader.getBlockState(posWest);
-//					if (stateWest ==  Blocks.BOOKSHELF.defaultBlockState()){
-//						placeBlock(reader, position.offset(0, 65, 0), Blocks.OAK_PLANKS.defaultBlockState());
-//						placeBlock(reader, position.offset(-1, 65, 0), Blocks.OAK_PLANKS.defaultBlockState());
-//						placeBlock(reader, position.offset(-2, 65, 0), Blocks.OAK_PLANKS.defaultBlockState());
-//						placeBlock(reader, position.offset(-2, 66, 0), Blocks.OAK_FENCE.defaultBlockState());
-//						
-//						
-////					}
-//				}
-//			}
-//		
+			
+
 
 		
 		return false;

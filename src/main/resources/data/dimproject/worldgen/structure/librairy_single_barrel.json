@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:jigsaw",
+  "biomes": "dimproject:biome_haut",
+  "step": "surface_structures",
+  "terrain_adaptation": "none",
+  "start_pool": "dimproject:librairy_single_barrel",
+  "size": 1,
+  "max_distance_from_center": 116,
+  "use_expansion_hack": false,
+  "start_height": {
+    "type": "minecraft:constant",
+    "value": {
+      "above_bottom": 0
+    }
+  },
+  "heightmap": "WORLD_SURFACE_WG",
+  "spawn_overrides": {}
+}

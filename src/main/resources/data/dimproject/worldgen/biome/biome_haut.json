@@ -14,7 +14,7 @@
     "water_color": 4159204,
     "water_fog_color": 329011
   },
-  "features": [["dimproject:lelyetian_hole"],[],[],[],["dimproject:ledge"]],
+  "features": [["dimproject:lelyetian_hole"],[],[],[],["dimproject:ledge"],["dimproject:enchanted_bookshelf","dimproject:mahou_bookshelf","dimproject:source_bookshelf","dimproject:spell_bookshelf","dimproject:ladder"]],
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
@@ -27,5 +27,6 @@
     "water_ambient": [],
     "water_creature": []
   },
+ 
   "temperature": 0.5
 }

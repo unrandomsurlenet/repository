@@ -1,6 +1,10 @@
 package com.dimproject.registries;
 
 import com.dimproject.DimProjectMod;
+import com.dimproject.world.feature.config.CappedColumnConfig;
+import com.dimproject.world.feature.config.ColumnConfig;
+import com.dimproject.world.feature.features.CappedColumnFeature;
+import com.dimproject.world.feature.features.ColumnFeature;
 import com.dimproject.world.feature.features.LedgeFeature;
 import com.dimproject.world.feature.features.RoomFeature;
 import com.dimproject.world.feature.placement.BlockStatePlacementConfig;
@@ -19,6 +23,8 @@ public final class DimProjectFeatures {
 	
 	public static final RegistryObject<Feature<BlockStatePlacementConfig>> LELYETIAN_HOLE = FEATURES.register("lelyetian_hole", () -> new RoomFeature(BlockStatePlacementConfig.CODEC));
 	public static final RegistryObject<Feature<BlockStatePlacementConfig>> LEDGE = FEATURES.register("ledge", () -> new LedgeFeature(BlockStatePlacementConfig.CODEC));
+	public static final RegistryObject<Feature<ColumnConfig>> COLUMN = FEATURES.register("column", () -> new ColumnFeature(ColumnConfig.CODEC));
+	public static final RegistryObject<Feature<CappedColumnConfig>> CAPPED_COLUMN = FEATURES.register("capped_column", () -> new CappedColumnFeature(CappedColumnConfig.CODEC));
 	
 	public static void register(IEventBus eventBus) {
 		FEATURES.register(eventBus);

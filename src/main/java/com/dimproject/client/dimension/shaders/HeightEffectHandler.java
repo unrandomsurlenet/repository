@@ -19,8 +19,8 @@ public class HeightEffectHandler {
     private static final ResourceLocation EFFECT_LOCATION =
         new ResourceLocation(DimProjectMod.MODID, "shaders/post/height_effect.json");
 
-    private static final int THRESHOLD_Y = 100;       // seuil où l'effet commence
-    private static final int MAX_Y = 150;              // hauteur où l'effet est à 100%
+    private static final int THRESHOLD_Y = 300;       // seuil où l'effet commence
+    private static final int MAX_Y = 350;              // hauteur où l'effet est à 100%
 
     private static boolean effectActive = false;
     private static float currentIntensity = 0.0f;

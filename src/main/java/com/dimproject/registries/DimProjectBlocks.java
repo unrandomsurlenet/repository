@@ -18,8 +18,26 @@ public class DimProjectBlocks {
 	public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, DimProjectMod.MODID);
 
-    public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> ENCHANTED_BOOKSHELF = registerBlock("enchanted_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
+    
+    public static final RegistryObject<Block> SOURCE_BOOKSHELF = registerBlock("source_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
+    
+    public static final RegistryObject<Block> SPELL_BOOKSHELF = registerBlock("spell_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
+    
+    public static final RegistryObject<Block> ARCANE_BOOKSHELF = registerBlock("arcane_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
+    
+    public static final RegistryObject<Block> SAGE_BOOKSHELF = registerBlock("sage_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
+    
+    public static final RegistryObject<Block> MAHOU_BOOKSHELF = registerBlock("mahou_bookshelf",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BOOKSHELF)));
+    
+    public static final RegistryObject<Block> ARCANE_LIBRAIRY_BRICKS = registerBlock("arcane_librairy_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS)));
     
     
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

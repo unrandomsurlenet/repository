@@ -1,0 +1,20 @@
+{
+"config": {
+	"ignore_placement_condition": true,
+	"max_stem_size": 17,
+	"stem_block": {
+		"state": {"Name": "minecraft:ladder"},
+		"type": "minecraft:simple_state_provider"},
+	"cap_block": {
+		"state": {"Name": "minecraft:air"},
+		"type": "minecraft:simple_state_provider"},
+		 "min_stem_size": 17
+	},
+"type": "dimproject:capped_column"
+		
+}		
+
+
+
+
+
