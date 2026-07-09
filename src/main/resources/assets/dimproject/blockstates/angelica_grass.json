@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "dimproject:block/angelica_grass"
+      },
+      {
+        "model": "dimproject:block/angelica_grass",
+        "y": 90
+      },
+      {
+        "model": "dimproject:block/angelica_grass",
+        "y": 180
+      },
+      {
+        "model": "dimproject:block/angelica_grass",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "dimproject:block/angelica_grass"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "render_type": "minecraft:solid",
+  "textures": {
+    "bottom": "dimproject:block/angelica_dirt",
+    "particle": "#side",
+    "side": "dimproject:block/angelica_grass_side",
+    "top": "dimproject:block/angelica_grass_top"
+  }
+}

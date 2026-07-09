@@ -1,0 +1,29 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"living": {
+			"loop": true,
+			"animation_length": 6,
+			"bones": {
+				"bone": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 120) * 6", 0, "math.cos(query.anim_time * 100) * 4"]
+					},
+					"position": {
+						"vector": [0, "math.sin(query.anim_time * 90) * 1", 0]
+					}
+				},
+				"wing1": {
+					"rotation": {
+						"vector": [0, "-math.sin(query.anim_time * 300) * -25", 0]
+					}
+				},
+				"wing2": {
+					"rotation": {
+						"vector": [0, "-math.sin(query.anim_time*300)*25", 0]
+					}
+				}
+			}
+		}
+	}
+}

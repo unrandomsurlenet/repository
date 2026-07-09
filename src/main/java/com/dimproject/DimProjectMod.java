@@ -1,22 +1,31 @@
 package com.dimproject;
 
+import com.dimproject.network.PacketHandler;
 import com.dimproject.registries.DimProjectBiomeSources;
 import com.dimproject.registries.DimProjectBlocks;
+import com.dimproject.registries.DimProjectEntities;
 import com.dimproject.registries.DimProjectFeatures;
 import com.dimproject.registries.DimProjectItems;
 import com.dimproject.registries.DimProjectSounds;
+import com.dimproject.registries.DimProjectTabs;
+import com.dimproject.util.BetterCombatIntegration;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
+
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import software.bernie.geckolib.GeckoLib;
+import net.mcreator.terramity.TerramityMod;
 
 import org.slf4j.Logger;
 
@@ -33,7 +42,7 @@ public class DimProjectMod
 //    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
 //    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 //    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
-//    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+   
 //
 //    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
 //    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
@@ -44,14 +53,8 @@ public class DimProjectMod
 //    public static final RegistryObject<Item> EXAMPLE_ITEM = ITEMS.register("example_item", () -> new Item(new Item.Properties().food(new FoodProperties.Builder()
 //            .alwaysEat().nutrition(1).saturationMod(2f).build())));
 //
-//    // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
-//    public static final RegistryObject<CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-//            .withTabsBefore(CreativeModeTabs.COMBAT)
-//            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-//            .displayItems((parameters, output) -> {
-//                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-//            }).build());
-
+    // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
+    
     public DimProjectMod(FMLJavaModLoadingContext context)
     {
         IEventBus modEventBus = context.getModEventBus();
@@ -67,8 +70,10 @@ public class DimProjectMod
 //        CREATIVE_MODE_TABS.register(modEventBus);
         DimProjectItems.register(modEventBus);
         DimProjectBlocks.register(modEventBus);
+        DimProjectTabs.register(modEventBus);
         DimProjectSounds.register(modEventBus);
         DimProjectFeatures.register(modEventBus);
+        DimProjectEntities.register(modEventBus);
         DimProjectBiomeSources.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -80,6 +85,7 @@ public class DimProjectMod
     {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
+        event.enqueueWork(PacketHandler::register);
 
         
     }
@@ -102,7 +108,15 @@ public class DimProjectMod
         {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
+            if (ModList.get().isLoaded("bettercombat")) {
+                BetterCombatIntegration.register();
+            }
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(DimProjectBlocks.ARCANE_LIGHT.get(), RenderType.translucent());
+                // ou RenderType.translucent() si tu veux du vrai fondu (vitres, eau, etc.)
+            
+            });
         }
     }
 }

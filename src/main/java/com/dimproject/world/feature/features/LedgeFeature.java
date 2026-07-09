@@ -3,6 +3,7 @@ package com.dimproject.world.feature.features;
 
 import java.util.Random;
 
+import com.dimproject.registries.DimProjectBlocks;
 import com.dimproject.world.feature.placement.BlockStatePlacementConfig;
 import com.mojang.serialization.Codec;
 
@@ -110,7 +111,7 @@ public class LedgeFeature extends Feature<BlockStatePlacementConfig>{
 							
 						}
 						
-						
+
 					}
 				
 			       }

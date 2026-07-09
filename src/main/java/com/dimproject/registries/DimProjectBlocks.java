@@ -3,6 +3,7 @@ package com.dimproject.registries;
 import java.util.function.Supplier;
 
 import com.dimproject.DimProjectMod;
+import com.dimproject.content.block.ArcaneLight;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -38,6 +39,14 @@ public class DimProjectBlocks {
     
     public static final RegistryObject<Block> ARCANE_LIBRAIRY_BRICKS = registerBlock("arcane_librairy_bricks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS)));
+    
+    public static final RegistryObject<Block> ANGELICA_GRASS = registerBlock("angelica_grass",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK)));
+    
+    public static final RegistryObject<Block> ARCANE_LIGHT = registerBlock("arcane_light",
+    		() -> new ArcaneLight(BlockBehaviour.Properties.copy(Blocks.GLOWSTONE).strength(0.5f, 0.3f).noOcclusion()));
+
+
     
     
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
