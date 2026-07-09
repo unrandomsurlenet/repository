@@ -20,6 +20,8 @@ public class DimProjectItems {
 
     public static final RegistryObject<Item> SKULREX = ITEMS.register("skulrex",
             () -> new SkulrexItem(new Item.Properties()));
+public static final RegistryObject<Item> FOCUS_RETICLE = ITEMS.register("focus_reticle",
+            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BOOK = ITEMS.register("book",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> EVANESCENCE = ITEMS.register("evanescence",
