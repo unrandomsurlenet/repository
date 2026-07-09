@@ -1,0 +1,10 @@
+{
+  "replace": true,
+  "slotName": "domain",
+  "size": 1,
+  "operation": "SET",
+  "order": 5200,
+  "icon": "dimproject:slot/empty_domain_slot",
+  "render_toggle": true,
+  "drop_rule": "DEFAULT"
+}
