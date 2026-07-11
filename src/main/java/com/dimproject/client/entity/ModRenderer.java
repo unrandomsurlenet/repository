@@ -2,6 +2,7 @@ package com.dimproject.client.entity;
 
 import com.dimproject.DimProjectMod;
 import com.dimproject.client.entity.renderer.BatlingRenderer;
+import com.dimproject.client.entity.renderer.SphereEntityRenderer;
 import com.dimproject.client.entity.renderer.ThrownBookRenderer;
 import com.dimproject.registries.DimProjectEntities;
 
@@ -16,5 +17,7 @@ public class ModRenderer {
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(DimProjectEntities.THROWN_BOOK.get(), ThrownBookRenderer::new);
         event.registerEntityRenderer(DimProjectEntities.BATLING.get(), BatlingRenderer::new);
+        event.registerEntityRenderer(DimProjectEntities.SPHERE_ENTITY.get(), SphereEntityRenderer::new);
+
     }
 }

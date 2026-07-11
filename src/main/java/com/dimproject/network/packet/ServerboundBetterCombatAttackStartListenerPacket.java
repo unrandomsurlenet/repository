@@ -2,6 +2,9 @@ package com.dimproject.network.packet;
 
 import java.util.function.Supplier;
 import com.dimproject.content.item.Evanescence;
+import com.dimproject.content.item.NightTerror;
+
+import net.minecraft.client.multiplayer.chat.LoggedChatMessage.System;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -39,7 +42,11 @@ public class ServerboundBetterCombatAttackStartListenerPacket {
             int combo = packet.combo;
             if (item instanceof Evanescence) {
             	Evanescence Evanescence = (Evanescence)item;
-            	Evanescence.spawnBookProjectiles(player);
+            	Evanescence.spawnBookProjectiles(player);}
+            if (item instanceof NightTerror) {
+            	NightTerror NightTerror = (NightTerror)item;
+            	NightTerror.spawnBatling(player);
+            	
 //            } else if (item instanceof SeventhStarSword) {
 //               SeventhStarSword seventhStarSword = (SeventhStarSword)item;
 //               seventhStarSword.shootTriStar(player);

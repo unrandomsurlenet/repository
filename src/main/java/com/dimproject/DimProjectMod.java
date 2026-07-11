@@ -9,6 +9,7 @@ import com.dimproject.registries.DimProjectItems;
 import com.dimproject.registries.DimProjectSounds;
 import com.dimproject.registries.DimProjectTabs;
 import com.dimproject.util.BetterCombatIntegration;
+import com.dimproject.util.entity.SphereCollisionHandler;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;

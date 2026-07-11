@@ -18,10 +18,10 @@ public class DimProjectTabs {
             .displayItems((parameters, output) -> {
                 output.accept(DimProjectItems.BOOK.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 output.accept(DimProjectItems.EVANESCENCE.get());
-//                output.accept(DimProjectItems.EVANESCENCE.get());
-//                output.accept(DimProjectItems.EVANESCENCE.get());
-//                output.accept(DimProjectItems.EVANESCENCE.get());
-//                output.accept(DimProjectItems.EVANESCENCE.get());
+                output.accept(DimProjectItems.NIGHT_TERROR.get());
+                output.accept(DimProjectItems.EVANESCENCE.get());
+                output.accept(DimProjectItems.INFINITE_VOID.get());
+                output.accept(DimProjectItems.FOCUS_RETICLE.get());
 //                output.accept(DimProjectItems.EVANESCENCE.get());
 //                output.accept(DimProjectItems.EVANESCENCE.get());
 

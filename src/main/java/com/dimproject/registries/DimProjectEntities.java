@@ -3,6 +3,7 @@ package com.dimproject.registries;
 import com.dimproject.DimProjectMod;
 import com.dimproject.content.entity.pet.BatlingEntity;
 import com.dimproject.content.entity.projectile.ThrownBookEntity;
+import com.dimproject.content.entity.tool.SphereEntity;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -33,9 +34,17 @@ public class DimProjectEntities {
     		ENTITY_TYPES.register("batling",
                 () -> EntityType.Builder.<BatlingEntity>of(BatlingEntity::new, MobCategory.MONSTER)
                     .sized(0.5F, 0.5F)
-                    .clientTrackingRange(4)
-                    .updateInterval(20)
+                    .clientTrackingRange(8)
+                    .updateInterval(4)
                     .build("batling")
+            );
+    public static final RegistryObject<EntityType<SphereEntity>> SPHERE_ENTITY = 
+    		ENTITY_TYPES.register("sphere_entity", 
+    		() -> EntityType.Builder.<SphereEntity>of(SphereEntity::new, MobCategory.MISC)
+            .sized(1f, 1f)        // pas de hitbox
+            .clientTrackingRange(64)
+            .updateInterval(Integer.MAX_VALUE) // jamais besoin de sync de position
+            .build("sphere_entity")
             );
 
     public static void register(IEventBus eventBus) {
@@ -44,6 +53,5 @@ public class DimProjectEntities {
     @SubscribeEvent
 	public static void addEntityAttributes(EntityAttributeCreationEvent event) {
 		event.put(BATLING.get(), BatlingEntity.registerAttributes().build());
-		
     }
 }

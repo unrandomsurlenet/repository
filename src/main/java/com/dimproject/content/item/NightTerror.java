@@ -1,6 +1,9 @@
 package com.dimproject.content.item;
 
+import com.dimproject.content.entity.pet.BatlingEntity;
 import com.dimproject.content.entity.projectile.ThrownBookEntity;
+import com.dimproject.registries.DimProjectEntities;
+
 import java.util.List;
 import net.minecraft.network.chat.Component;
 
@@ -41,19 +44,11 @@ public class NightTerror extends SwordItem {
 
     public void spawnBatling(Player player) {
         Level level = player.level();
-        float[] offsets = {-8f, 0f, 8f};
-
-        for (float yawOffset : offsets) {
-            ThrownBookEntity book = new ThrownBookEntity(level, player);
-            book.shootFromRotation(
-                player,
-                player.getXRot(),
-                player.getYRot() + yawOffset,
-                0.0F,
-                1.5F,
-                0.5F
-            );
-            level.addFreshEntity(book);
+        if (level.random.nextInt(3) == 0) {
+            BatlingEntity bat = new BatlingEntity(DimProjectEntities.BATLING.get(), level);
+            bat.moveTo(player.getX(), player.getY() + 1, player.getZ(), 0f, 0f);
+            level.addFreshEntity(bat);
         }
+        
     }
 }
