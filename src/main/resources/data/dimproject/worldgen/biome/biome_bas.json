@@ -1,6 +1,6 @@
 {
   "carvers": {},
-  "creature_spawn_probability": 0.0,
+  "creature_spawn_probability": 0.99,
   "downfall": 0.5,
   "effects": {
     "fog_color": 9860853,
@@ -12,15 +12,40 @@
     },
     "sky_color": 16745810,
     "water_color": 4159204,
-    "water_fog_color": 329011
+    "water_fog_color": 329011,
+    "particle": {
+      "options": {
+        "type": "minecraft:warped_spore"
+      },
+      "probability": 0.05
+    }
   },
-  "features": [["dimproject:lelyetian_hole"],[],[],[],["dimproject:ledge"]],
+  "features": [[],["dimproject:flying_rock"],["dimproject:metanova_ore"],["dimproject:arcane_tree"],["dimproject:arcane_roots","dimproject:lit_arcane_roots","dimproject:arcane_grass","dimproject:lit_arcane_grass"]],
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+		{
+		            "type": "terramity:pink_fairy",
+		            "weight": 10,
+		            "minCount": 1,
+		            "maxCount": 3
+		        },
+		        {
+		            "type": "terramity:green_fairy",
+		            "weight": 10,
+		            "minCount": 1,
+		            "maxCount": 3
+		        },
+		        {
+		            "type": "terramity:blue_fairy",
+		            "weight": 10,
+		            "minCount": 1,
+		            "maxCount": 3
+		        }
+	],
     "misc": [],
     "monster": [],
     "underground_water_creature": [],

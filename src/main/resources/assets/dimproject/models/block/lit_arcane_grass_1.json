@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "dimproject:block/lit_arcane_grass_1"
+  },
+  "render_type": "cutout"
+}

@@ -1,14 +1,14 @@
 {
 "config": {
 	"ignore_placement_condition": true,
-	"max_stem_size": 17,
+	"max_stem_size": 16,
 	"stem_block": {
 		"state": {"Name": "minecraft:ladder"},
 		"type": "minecraft:simple_state_provider"},
 	"cap_block": {
-		"state": {"Name": "minecraft:air"},
+		"state": {"Name": "minecraft:oak_trapdoor"},
 		"type": "minecraft:simple_state_provider"},
-		 "min_stem_size": 17
+		 "min_stem_size": 16
 	},
 "type": "dimproject:capped_column"
 		

@@ -1,5 +1,12 @@
 {
   "item.dimproject.evanescence": "Evanescence",
-  "item.dimproject.evanescence.description_0": "§9You should read more"
-  
+  "item.dimproject.infinite_void": "Infinite Void",
+  "item.dimproject.evanescence.description_0": "§9You should read more",
+  "item.dimproject.infinite_void.description_0": "§6",
+  "item.dimproject.infinite_void.description_1": "§6Active Ability:",
+  "item.dimproject.infinite_void.description_3": "§3 -180 second cooldown",
+  "item.dimproject.infinite_void.description_2": "§e -Open the infinite void domain, incapacitating all mobs inside",
+  "curios.identifier.domain": "Domain"
+
+
 }

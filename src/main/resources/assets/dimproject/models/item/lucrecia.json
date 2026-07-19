@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "dimproject:item/lucrecia"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [-44, -90, 0],
+			"translation": [0, 7.75, 0.5]
+		},
+		"firstperson_righthand": {
+			"rotation": [-45, -90, 0],
+			"translation": [1.13, 5.7, 0.88]
+		},
+		"ground": {
+			"translation": [0, 5.75, 0],
+			"scale": [2, 2, 1]
+		},
+		"fixed": {
+			"scale": [2, 2.01, 1]
+		}
+	}
+}

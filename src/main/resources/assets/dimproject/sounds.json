@@ -4,5 +4,11 @@
     "sounds": [
       "dimproject:skulrex"
     ]
-  }
+  },
+  "infinite_void": {
+     "subtitles": "sounds.dimproject.infinite_void",
+     "sounds": [
+       "dimproject:infinite_void"
+     ]
+   }
 }

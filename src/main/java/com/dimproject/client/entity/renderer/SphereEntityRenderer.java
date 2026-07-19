@@ -5,8 +5,8 @@ import java.util.List;
 import org.joml.Matrix4f;
 
 import com.dimproject.client.entity.mesh.SphereMesh;
-import com.dimproject.client.entity.shader.SphereShader;
 import com.dimproject.client.entity.type.SphereRenderType;
+import com.dimproject.client.shader.SphereShader;
 import com.dimproject.content.entity.tool.SphereEntity;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

@@ -1,6 +1,6 @@
 {
   "carvers": {},
-  "creature_spawn_probability": 0.0,
+  "creature_spawn_probability": 0.01,
   "downfall": 0.5,
   "effects": {
     "fog_color": 12638463,
@@ -14,15 +14,39 @@
     "water_color": 4159204,
     "water_fog_color": 329011
   },
-  "features": [["dimproject:lelyetian_hole"],[],[],[],["dimproject:ledge"],["dimproject:enchanted_bookshelf","dimproject:mahou_bookshelf","dimproject:source_bookshelf","dimproject:spell_bookshelf","dimproject:ladder"]],
+  "features": [["dimproject:lelyetian_hole"],[],[],[],["dimproject:ledge"],
+  ["dimproject:enchanted_bookshelf","dimproject:blood_bookshelf","dimproject:divine_bookshelf","dimproject:mahou_bookshelf","dimproject:source_bookshelf","dimproject:spell_bookshelf",
+  "dimproject:ladder"],["dimproject:enchanted_bookshelf_small","dimproject:blood_bookshelf_small","dimproject:divine_bookshelf_small","dimproject:mahou_bookshelf_small","dimproject:source_bookshelf_small","dimproject:spell_bookshelf_small"]
+  ,["dimproject:paper_0","dimproject:paper_1"]],
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
     "ambient": [],
     "axolotls": [],
-    "creature": [],
+    "creature": [
+		
+	],
     "misc": [],
-    "monster": [],
+    "monster": [
+//		{
+//							"type": "dimproject:chicken_engineer",
+//							"weight": 10,
+//							 "minCount": 1,
+//							 "maxCount": 2
+//						},
+//						{
+//							"type": "dimproject:chicken_worker",
+//							"weight": 80,
+//							"minCount": 1,
+//							"maxCount": 2
+//						},
+//						{
+//							"type": "dimproject:chicken_drone",
+//							"weight": 20,
+//							"minCount": 1,
+//							"maxCount": 3
+//						}		
+	],
     "underground_water_creature": [],
     "water_ambient": [],
     "water_creature": []

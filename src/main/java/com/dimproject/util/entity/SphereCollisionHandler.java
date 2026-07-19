@@ -51,7 +51,7 @@ public class SphereCollisionHandler {
                 corrected.x, corrected.y, corrected.z,
                 player.getYRot(), player.getXRot()
             );
-            player.setDeltaMovement(dir.scale(-1.5));
+            player.setDeltaMovement(dir.scale(-0.5));
         }
     }
 
@@ -67,7 +67,7 @@ public class SphereCollisionHandler {
             Vec3 dir = mob.position().subtract(center).normalize();
             Vec3 corrected = center.add(dir.scale(radius - 0.5));
             mob.setPos(corrected.x, corrected.y, corrected.z);
-            mob.setDeltaMovement(dir.scale(-1.5));
+            mob.setDeltaMovement(dir.scale(-0.5));
         }
     }
 

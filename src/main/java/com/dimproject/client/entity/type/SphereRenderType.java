@@ -1,6 +1,6 @@
 package com.dimproject.client.entity.type;
 
-import com.dimproject.client.entity.shader.SphereShader;
+import com.dimproject.client.shader.SphereShader;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.client.renderer.RenderStateShard;

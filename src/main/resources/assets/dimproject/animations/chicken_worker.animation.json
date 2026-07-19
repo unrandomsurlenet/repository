@@ -1,0 +1,85 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"attack": {
+			"animation_length": 0.75,
+			"bones": {
+				"Shoulder_l": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 480) * 50", 0, 0]
+					}
+				},
+				"Arm_L2": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 480) * 50", 0, 0]
+					}
+				}
+			}
+		},
+		"stay": {
+			"loop": true,
+			"animation_length": 12,
+			"bones": {
+				"ForArm_L": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 360) * 5", 0, 0]
+					}
+				},
+				"ForArm_L2": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 360) * -5", 0, 0]
+					}
+				},
+				"pckpit2": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 120) * 6", 0, "math.cos(query.anim_time * 100) * 4"]
+					},
+					"position": {
+						"vector": [0, "math.sin(query.anim_time * 90) * 1", 0]
+					}
+				}
+			}
+		},
+		"walk": {
+			"loop": true,
+			"animation_length": 3.0417,
+			"bones": {
+				"Knee_L2": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * -360) * 25", 0, 0]
+					}
+				},
+				"Cockpit": {
+					"rotation": {
+						"vector": [0, 0, "math.sin(query.anim_time * 300) * 1"]
+					}
+				},
+				"Shoulder_l": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 360) * 10", 0, 0]
+					}
+				},
+				"Arm_L2": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 360) * -10", 0, 0]
+					}
+				},
+				"tight_L": {
+					"rotation": {
+						"0.0": {
+							"vector": ["-math.sin(query.anim_time * -360) * 25", 0, 0]
+						},
+						"3.0417": {
+							"vector": ["-math.sin(query.anim_time * -360) * 25", 0, 0]
+						}
+					}
+				},
+				"tight_R": {
+					"rotation": {
+						"vector": ["-math.sin(query.anim_time * 360) * 25", 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

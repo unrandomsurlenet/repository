@@ -50,7 +50,6 @@ public class BatlingEntity extends Monster implements GeoEntity {
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(2, new FlyingMeleeAttackGoal(this, 1.0));
-        //goalSelector.addGoal(5, new WaterAvoidingRandomFlyingGoal(this, 1.0));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
         targetSelector.addGoal(2, new HurtByTargetGoal(this));
         targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Monster.class, true, 

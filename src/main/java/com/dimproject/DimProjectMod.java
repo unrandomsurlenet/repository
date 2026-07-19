@@ -6,6 +6,9 @@ import com.dimproject.registries.DimProjectBlocks;
 import com.dimproject.registries.DimProjectEntities;
 import com.dimproject.registries.DimProjectFeatures;
 import com.dimproject.registries.DimProjectItems;
+import com.dimproject.registries.DimProjectMobEffect;
+import com.dimproject.registries.DimProjectParticles;
+import com.dimproject.registries.DimProjectPotion;
 import com.dimproject.registries.DimProjectSounds;
 import com.dimproject.registries.DimProjectTabs;
 import com.dimproject.util.BetterCombatIntegration;
@@ -14,7 +17,10 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -43,7 +49,10 @@ public class DimProjectMod
 //    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
 //    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 //    // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "examplemod" namespace
-   
+    public static final ResourceKey<Level> LIBRAIRY = ResourceKey.create(
+    	    Registries.DIMENSION,
+    	    new ResourceLocation(MODID, "test")
+    	);
 //
 //    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
 //    public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("example_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.STONE)));
@@ -62,19 +71,15 @@ public class DimProjectMod
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
-//
-//        // Register the Deferred Register to the mod event bus so blocks get registered
-//        BLOCKS.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so items get registered
-//        ITEMS.register(modEventBus);
-//        // Register the Deferred Register to the mod event bus so tabs get registered
-//        CREATIVE_MODE_TABS.register(modEventBus);
+        DimProjectMobEffect.register(modEventBus);
+        DimProjectPotion.register(modEventBus);
         DimProjectItems.register(modEventBus);
         DimProjectBlocks.register(modEventBus);
         DimProjectTabs.register(modEventBus);
         DimProjectSounds.register(modEventBus);
         DimProjectFeatures.register(modEventBus);
         DimProjectEntities.register(modEventBus);
+        DimProjectParticles.PARTICLES.register(modEventBus);
         DimProjectBiomeSources.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -115,6 +120,21 @@ public class DimProjectMod
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
             event.enqueueWork(() -> {
                 ItemBlockRenderTypes.setRenderLayer(DimProjectBlocks.ARCANE_LIGHT.get(), RenderType.translucent());
+                // ou RenderType.translucent() si tu veux du vrai fondu (vitres, eau, etc.)
+            
+            });
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(DimProjectBlocks.LIBAIRY_BANNER.get(), RenderType.translucent());
+                // ou RenderType.translucent() si tu veux du vrai fondu (vitres, eau, etc.)
+            
+            });
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(DimProjectBlocks.SAGE_LEAVES.get(), RenderType.translucent());
+                // ou RenderType.translucent() si tu veux du vrai fondu (vitres, eau, etc.)
+            
+            });
+            event.enqueueWork(() -> {
+                ItemBlockRenderTypes.setRenderLayer(DimProjectBlocks.PAPER.get(), RenderType.translucent());
                 // ou RenderType.translucent() si tu veux du vrai fondu (vitres, eau, etc.)
             
             });

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.dimproject.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ActiveAbilityMixin",
+	"FairySpawningConditionMixin"
+
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "dimproject.refmap.json"
+}

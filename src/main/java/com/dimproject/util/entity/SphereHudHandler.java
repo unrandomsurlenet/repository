@@ -1,15 +1,11 @@
 package com.dimproject.util.entity;
 
-import com.dimproject.DimProjectMod;
-import com.dimproject.client.entity.shader.SpeedEffectShader;
+import com.dimproject.client.shader.SpeedEffectShader;
 import com.dimproject.content.entity.tool.SphereEntity;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.phys.AABB;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ComputeFovModifierEvent;
@@ -17,56 +13,68 @@ import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import org.joml.Matrix4f;
 
 import java.util.List;
 
-@Mod.EventBusSubscriber(modid = DimProjectMod.MODID, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = "dimproject", value = Dist.CLIENT)
 public class SphereHudHandler {
 
-    @SubscribeEvent
-    public static void onFovModifier(ComputeFovModifierEvent event) {
-        Minecraft mc = Minecraft.getInstance();
-        if (mc.level == null) return;
+	@SubscribeEvent
+	public static void onFovModifier(ComputeFovModifierEvent event) {
+	    Minecraft mc = Minecraft.getInstance();
+	    if (mc.level == null) return;
 
-        SphereEntity sphere = getNearbySphere(mc);
-        if (sphere == null || !sphere.isEffectActive()) return;
+	    SphereEntity sphere = getNearbySphere(mc);
+	    if (sphere == null || !sphere.isFovEffectActive()) return;
 
-        float intensity = sphere.getEffectIntensity(mc.getFrameTime());
-        intensity = intensity * intensity * (3f - 2f * intensity);
+	    float intensity = sphere.getFovIntensity(mc.getFrameTime());
+	    event.setNewFovModifier(event.getNewFovModifier() + intensity);
+	}
 
-        float fovBoost = intensity * 50f;
-        event.setNewFovModifier(event.getNewFovModifier() + fovBoost);
-    }
+	@SubscribeEvent
+	public static void onRenderHud(RenderGuiOverlayEvent.Post event) {
+	    if (event.getOverlay() != VanillaGuiOverlay.CROSSHAIR.type()) return;
 
-    @SubscribeEvent
-    public static void onRenderHud(RenderGuiOverlayEvent.Post event) {
-        if (event.getOverlay() != VanillaGuiOverlay.CROSSHAIR.type()) return;
+	    Minecraft mc = Minecraft.getInstance();
+	    if (mc.level == null || mc.player == null) return;
 
-        Minecraft mc = Minecraft.getInstance();
-        if (mc.level == null || mc.player == null) return;
+	    SphereEntity sphere = getNearbySphere(mc);
+	    if (sphere == null || !sphere.isSpeedEffectActive()) return;
 
-        SphereEntity sphere = getNearbySphere(mc);
-        if (sphere == null || !sphere.isEffectActive()) return;
+	    ShaderInstance shader = SpeedEffectShader.INSTANCE;
+	    if (shader == null) return;
 
-        float intensity = sphere.getEffectIntensity(mc.getFrameTime());
-        intensity = intensity * intensity * (3f - 2f * intensity);
+	    float intensity = sphere.getSpeedIntensity(mc.getFrameTime());
+	    if (intensity <= 0.01f) return;
 
+
+        float time = (mc.level.getGameTime() + mc.getFrameTime()) / 20f;
         int w = mc.getWindow().getGuiScaledWidth();
         int h = mc.getWindow().getGuiScaledHeight();
 
-        GuiGraphics graphics = event.getGuiGraphics();
+        shader.safeGetUniform("Time").set(time);
+        shader.safeGetUniform("Intensity").set(intensity);
+        shader.safeGetUniform("Resolution").set((float) w, (float) h);
 
         RenderSystem.enableBlend();
-        RenderSystem.defaultBlendFunc();
-        RenderSystem.setShaderColor(1f, 1f, 1f, intensity * 0.85f);
-
-        graphics.blit(
-            new ResourceLocation("dimproject", "textures/hud/speed_effect.png"),
-            0, 0, 0, 0, w, h, w, h
+        RenderSystem.blendFunc(
+            com.mojang.blaze3d.platform.GlStateManager.SourceFactor.SRC_ALPHA,
+            com.mojang.blaze3d.platform.GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA // additif pour l'effet de lumière
         );
+        RenderSystem.setShader(() -> shader);
+        RenderSystem.disableDepthTest();
 
-        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
+        // Dessine un quad plein écran
+        BufferBuilder buffer = Tesselator.getInstance().getBuilder();
+        buffer.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+        buffer.vertex(0,  h,  0).uv(0, 1).endVertex();
+        buffer.vertex(w,  h,  0).uv(1, 1).endVertex();
+        buffer.vertex(w,  0,  0).uv(1, 0).endVertex();
+        buffer.vertex(0,  0,  0).uv(0, 0).endVertex();
+        Tesselator.getInstance().end();
+
+        RenderSystem.enableDepthTest();
+        RenderSystem.defaultBlendFunc();
         RenderSystem.disableBlend();
     }
 

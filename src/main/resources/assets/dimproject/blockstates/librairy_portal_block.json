@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "axis=x": {
+            "model": "dimproject:block/librairy_portal_block_x"
+        },
+        "axis=z": {
+            "model": "dimproject:block/librairy_portal_block_z"
+        }
+    }
+}

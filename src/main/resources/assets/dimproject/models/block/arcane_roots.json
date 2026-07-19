@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "dimproject:block/arcane_roots"
+  },
+  "render_type": "cutout"
+}

@@ -5,16 +5,17 @@ import java.util.EnumSet;
 import com.dimproject.content.entity.pet.BatlingEntity;
 
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 
 public class FlyingMeleeAttackGoal extends Goal {
 
-    private final BatlingEntity mob;
+    private final PathfinderMob mob;
     private final double speedModifier;
     private int ticksUntilNextAttack = 0;
     private static final int ATTACK_INTERVAL = 20;
 
-    public FlyingMeleeAttackGoal(BatlingEntity mob, double speed) {
+    public FlyingMeleeAttackGoal(PathfinderMob mob, double speed) {
         this.mob = mob;
         this.speedModifier = speed;
         this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK));

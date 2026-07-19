@@ -1,0 +1,22 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "dimproject:item/paper",
+		"particle": "dimproject:item/paper"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 0.1, 16],
+			"faces": {
+				"north": {"uv": [0, 1.9, 16, 2], "texture": "#missing"},
+				"east": {"uv": [0, 1.9, 16, 2], "texture": "#missing"},
+				"south": {"uv": [0, 1.9, 16, 2], "texture": "#missing"},
+				"west": {"uv": [0, 1.9, 16, 2], "texture": "#missing"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#0"}
+			}
+		}
+	]
+}

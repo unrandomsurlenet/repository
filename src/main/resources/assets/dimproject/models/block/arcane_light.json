@@ -2,9 +2,9 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "dimproject:block/arcane_librairy_bricks",
+		"0": "dimproject:block/librairy_bricks",
 		"1": "dimproject:block/crystal",
-		"particle": "dimproject:block/arcane_librairy_bricks"
+		"particle": "dimproject:block/librairy_bricks"
 	},
 	"elements": [
 		{

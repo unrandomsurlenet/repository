@@ -1,6 +1,11 @@
 package com.dimproject.registries;
 
 import com.dimproject.DimProjectMod;
+import com.dimproject.client.entity.model.ChickenRooverModel;
+import com.dimproject.content.entity.librairy.ChickenDroneEntity;
+import com.dimproject.content.entity.librairy.ChickenEngineerEntity;
+import com.dimproject.content.entity.librairy.ChickenRooverEntity;
+import com.dimproject.content.entity.librairy.ChickenWorkerEntity;
 import com.dimproject.content.entity.pet.BatlingEntity;
 import com.dimproject.content.entity.projectile.ThrownBookEntity;
 import com.dimproject.content.entity.tool.SphereEntity;
@@ -38,6 +43,38 @@ public class DimProjectEntities {
                     .updateInterval(4)
                     .build("batling")
             );
+    public static final RegistryObject<EntityType<ChickenDroneEntity>> CHICKEN_DRONE =
+    		ENTITY_TYPES.register("chicken_drone",
+                () -> EntityType.Builder.<ChickenDroneEntity>of(ChickenDroneEntity::new, MobCategory.CREATURE)
+                    .sized(1.0F, 1.0F)
+                    .clientTrackingRange(8)
+                    .updateInterval(4)
+                    .build("chicken_drone")
+            );
+    public static final RegistryObject<EntityType<ChickenWorkerEntity>> CHICKEN_WORKER =
+    		ENTITY_TYPES.register("chicken_worker",
+                () -> EntityType.Builder.<ChickenWorkerEntity>of(ChickenWorkerEntity::new, MobCategory.CREATURE)
+                    .sized(1.0F, 3.0F)
+                    .clientTrackingRange(8)
+                    .updateInterval(4)
+                    .build("chicken_worker")
+            );
+    public static final RegistryObject<EntityType<ChickenEngineerEntity>> CHICKEN_ENGINEER =
+    		ENTITY_TYPES.register("chicken_engineer",
+                () -> EntityType.Builder.<ChickenEngineerEntity>of(ChickenEngineerEntity::new, MobCategory.CREATURE)
+                    .sized(1.0F, 3.0F)
+                    .clientTrackingRange(8)
+                    .updateInterval(4)
+                    .build("chicken_engineer")
+            );
+    public static final RegistryObject<EntityType<ChickenRooverEntity>> CHICKEN_ROOVER =
+    		ENTITY_TYPES.register("chicken_roover",
+                () -> EntityType.Builder.<ChickenRooverEntity>of(ChickenRooverEntity::new, MobCategory.CREATURE)
+                    .sized(1.0F, 3.0F)
+                    .clientTrackingRange(8)
+                    .updateInterval(4)
+                    .build("chicken_roover")
+            );
     public static final RegistryObject<EntityType<SphereEntity>> SPHERE_ENTITY = 
     		ENTITY_TYPES.register("sphere_entity", 
     		() -> EntityType.Builder.<SphereEntity>of(SphereEntity::new, MobCategory.MISC)
@@ -53,5 +90,10 @@ public class DimProjectEntities {
     @SubscribeEvent
 	public static void addEntityAttributes(EntityAttributeCreationEvent event) {
 		event.put(BATLING.get(), BatlingEntity.registerAttributes().build());
+		event.put(CHICKEN_WORKER.get(), ChickenWorkerEntity.registerAttributes().build());
+		event.put(CHICKEN_DRONE.get(), ChickenDroneEntity.registerAttributes().build());
+		event.put(CHICKEN_ENGINEER.get(), ChickenEngineerEntity.registerAttributes().build());
+		event.put(CHICKEN_ROOVER.get(), ChickenRooverEntity.registerAttributes().build());
+
     }
 }

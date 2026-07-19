@@ -1,0 +1,8 @@
+{
+  "type": "dimproject:flying_rock",
+  "config": {
+    "block": {
+      "Name": "minecraft:dirt"
+    }
+  }
+}

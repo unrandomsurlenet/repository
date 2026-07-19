@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "dimproject:block/sage_planks",
+    "top": "dimproject:block/sage_planks",
+    "side": "dimproject:block/sage_planks"
+  }
+}

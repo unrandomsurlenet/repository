@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "dimproject:block/arcane_librairy_bricks"
-  }
-}

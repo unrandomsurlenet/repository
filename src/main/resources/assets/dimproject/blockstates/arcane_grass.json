@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "dimproject:block/arcane_grass_0",
+        "weight": 1
+      },
+      {
+        "model": "dimproject:block/arcane_grass_1",
+        "weight": 1
+      }
+    ]
+  }
+}
